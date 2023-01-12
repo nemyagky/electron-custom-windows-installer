@@ -24,6 +24,7 @@
       "oneClick": false,
       "perMachine": true,
       "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": false,
       "include": "build/installer.nsh",
       "installerIcon": "desktop/installerIcon.ico",
       "installerHeader": "desktop/installerHeader.bmp",

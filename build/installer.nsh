@@ -14,6 +14,11 @@
 !define MUI_FINISHPAGE_RUN_TEXT "Run application"
 !define MUI_FINISHPAGE_BUTTON  "Close"
 
+Section "Start menu shortcut"
+CreateDirectory "$Desktop\foldername"
+CreateShortcut "$Desktop\foldername\$(^Name).lnk" "$InstDir\Installer Demo.exe"
+SectionEnd
+
 
 !macro customWelcomePage
     !insertMacro MUI_PAGE_WELCOME
