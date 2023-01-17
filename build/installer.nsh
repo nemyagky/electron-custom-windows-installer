@@ -1,7 +1,9 @@
 !include MUI2.nsh
 
 !define UNINST_PATH "$Temp\Installer Demo"
+; Don't change
 !define PRODUCT_UNINST_ROOT_KEY "HKLM"
+; Installer Demo - name from package json uninstallDisplayName
 !define PRODUCT_UNINST_KEY "Software\Microsoft\Windows\CurrentVersion\Uninstall\Installer Demo"
 
 
@@ -46,6 +48,7 @@ FunctionEnd
 Section
   SetShellVarContext current
   WriteUninstaller "${UNINST_PATH}\Uninstaller.exe"
+  ; Use it to store if we have installed application. Check docs to see more
   WriteRegStr "${PRODUCT_UNINST_ROOT_KEY}" "${PRODUCT_UNINST_KEY}" "UninstallString" "$(^Name)"
 
   CreateDirectory "$Desktop\foldername"
@@ -53,13 +56,19 @@ Section
 SectionEnd
 
 Section Uninstall
+  ; Clear info about installed app
   DeleteRegKey "${PRODUCT_UNINST_ROOT_KEY}" "${PRODUCT_UNINST_KEY}"
+
+  ; Delete from $Desktop\foldername - hardcoded. E.g. You can delete from $SMPROGRAMS/$Desktop
+  Delete "$Desktop\foldername\*.*"
+  RMDir /r "$Desktop\foldername"
 SectionEnd
 
 !macro customWelcomePage
     !insertMacro MUI_PAGE_WELCOME
 !macroend
 
+; Launch when installer init
 !macro customInit
     Call IsProductInstalled
 !macroend
