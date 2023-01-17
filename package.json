@@ -29,6 +29,9 @@
       "installerIcon": "desktop/installerIcon.ico",
       "installerHeader": "desktop/installerHeader.bmp",
       "installerSidebar": "desktop/installerSidebar.bmp",
+      "uninstallerIcon": "desktop/uninstallerIcon.ico",
+      "uninstallerSidebar": "desktop/uninstallerSidebar.bmp",
+      "uninstallDisplayName": "Installer Demo",
       "license": "license.txt"
     }
   }
