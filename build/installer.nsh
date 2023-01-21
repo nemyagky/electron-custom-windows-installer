@@ -1,10 +1,10 @@
 !include MUI2.nsh
 
-!define UNINST_PATH "$Temp\Installer Demo"
+!define UNINST_PATH "$Temp\$(^Name)"
 ; Don't change
 !define PRODUCT_UNINST_ROOT_KEY "HKLM"
 ; Installer Demo - name from package json uninstallDisplayName
-!define PRODUCT_UNINST_KEY "Software\Microsoft\Windows\CurrentVersion\Uninstall\Installer Demo"
+!define PRODUCT_UNINST_KEY "Software\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)"
 
 
 !define MUI_WELCOMEPAGE_TITLE  "Welcome to Installer Demo application"
@@ -52,7 +52,7 @@ Section
   WriteRegStr "${PRODUCT_UNINST_ROOT_KEY}" "${PRODUCT_UNINST_KEY}" "UninstallString" "$(^Name)"
 
   CreateDirectory "$Desktop\foldername"
-  CreateShortcut "$Desktop\foldername\$(^Name).lnk" "$InstDir\Installer Demo.exe"
+  CreateShortcut "$Desktop\foldername\$(^Name).lnk" "$InstDir\$(^Name).exe"
 SectionEnd
 
 Section Uninstall

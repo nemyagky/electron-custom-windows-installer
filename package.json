@@ -22,7 +22,7 @@
     "productName": "Installer Demo",
     "nsis": {
       "oneClick": false,
-      "perMachine": true,
+      "perMachine": false,
       "allowToChangeInstallationDirectory": true,
       "createDesktopShortcut": false,
       "include": "build/installer.nsh",
