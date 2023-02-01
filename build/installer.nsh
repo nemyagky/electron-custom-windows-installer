@@ -3,9 +3,7 @@
 !define UNINST_PATH "$Temp\$(^Name)"
 ; Don't change
 !define PRODUCT_UNINST_ROOT_KEY "HKLM"
-; Installer Demo - name from package json uninstallDisplayName
 !define PRODUCT_UNINST_KEY "Software\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)"
-
 
 !define MUI_WELCOMEPAGE_TITLE  "Welcome to Installer Demo application"
 !define MUI_WELCOMEPAGE_TEXT  "MUI is used to customize texts in this installer $\r$\n $\r$\n You can find docs here if necessary https://nsis.sourceforge.io/Docs/Modern%20UI%202/Readme.html. It's easy to understand $\r$\n $\r$\n Click Next to continue."
@@ -25,7 +23,7 @@
 !define MUI_FINISHPAGE_RUN_TEXT "Run application"
 !define MUI_FINISHPAGE_BUTTON  "Close"
 
-!define MUI_UNABORTWARNING_TEXT  "You trying to close me?))))"
+!define MUI_UNABORTWARNING_TEXT  "You trying to close me?"
 
 !ifndef BUILD_UNINSTALLER
 Function IsProductInstalled
